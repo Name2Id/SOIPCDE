@@ -20,11 +20,18 @@ class ElControlador {
                 } else if ($title ==="Todos") {
                     $todos = $users->all();
                     $switch = 2;
-                } else {
+                } else if(is_numeric($title)) {
                     $porId = $users->find($title);
                     $switch = 3;
+                    if (empty($porId)) {
+                        require_once LasConstantes::PATH().'templates/LaPlantilla404.html';
+                        die();
+                    }
+                } else {
+                    require_once LasConstantes::PATH().'templates/LaPlantilla404.html';
+                    die();
                 }
-                require_once LasConstantes::PATH().'templates/LaPlantillaTituloDinamico.php';
+                require_once LasConstantes::PATH().'templates/LaPlantillaContenidoDinamico.php';
             break;
             default: require_once LasConstantes::PATH().'templates/LaPlantilla404.html';
         }
