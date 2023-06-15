@@ -1,110 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background: #E9ECF4;
-            color: #000;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .contenedor {
-            width: 90%;
-            max-width: 1000px;
-            margin: 20px auto;
-            display: grid;
-            grid-gap: 20px;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(4, auto);
-
-            grid-template-areas: "header header header"
-                                "contenido contenido sidebar"
-                                "widget-1 widget-2 sidebar"
-                                "footer footer footer";
-        }
-
-        .contenedor > div,
-        .contenedor .header,
-        .contenedor .contenido,
-        .contenedor .footer {
-            background: #fff;
-            padding: 20px;
-            border-radius: 4px;
-        }
-
-        .contenedor .sidebar {
-            border-radius: 4px;
-            padding: 1px;
-        }
-
-        .contenedor .header {
-            background: #12203E;
-            color: #fff;
-            grid-area: header;
-        }
-
-        .contenedor .contenido {
-            grid-area: contenido;
-        }
-
-        .contenedor .sidebar {
-            grid-column: 3 / 4;
-            background: #fAA43D;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100px;
-            grid-area: sidebar;
-            flex-wrap: wrap;
-        }
-
-        .contenedor .widget-1,
-        .contenedor .widget-2 {
-            background: #55a8fd;
-            color: #fff;
-            height: 100px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .contenedor .widget-1 {
-            grid-area: widget-1;
-        }
-
-        .contenedor .widget-2 {
-            grid-area: widget-2;
-        }
-
-        .contenedor .footer {
-            background: #12203E;
-            color: #fff;
-            grid-area: footer;
-        }
-
-        @media screen and (max-width: 768px){
-            .contenedor {
-                grid-template-areas: "header header header"
-                                "contenido contenido contenido"
-                                "sidebar sidebar sidebar"
-                                "widget-1 widget-1 widget-2"
-                                "footer footer footer";
-            }
-        }
-    </style>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<title>Ramiro S back N</title>
+    <link rel="stylesheet" href="./css.css">
 </head>
 <body>
 	<div class="contenedor">
@@ -131,6 +33,90 @@
                 RewriteRule ^ YourFileName.php [QSA,L]
                 </pre>
 			</p>
+            <h2>Que hay en el index</h2>
+            <pre>
+                php 
+                    require_once './Autoload.php'; 
+                    require_once './UrlsRegister.php';
+                    require_once './Switcher.php';
+                ?>
+            </pre>
+            <h2>Que hay en el Autoload</h2>
+            <pre>
+                php
+                    spl_autoload_register (function($class) {
+                        $ruta = "C:/xampp/htdocs/".$class.".php";
+                        if (file_exists($ruta)) {
+                            require_once $ruta;
+                        }
+                    });
+                ?>
+            </pre>
+            <h2>el Autoload Carga la Clase FiltrarUrl</h2>
+            <pre>
+                php
+                    class FiltrarUrl {
+                        private $url;
+                        private $urls;
+                        public function __construct () {
+                            $url = $_SERVER['REQUEST_URI'];
+                            $url = trim($url,'/');
+                            $this->url = $url;
+                        }
+                        public function url () {
+                            return $this->url;
+                        }
+                        public function saveUrl ($url) {
+                            $this->urls[] = $url;
+                        }
+                        public function urls () {
+                            return $this->urls;
+                        }
+                    }
+                ?>
+            </pre>
+            <h2>Que hay en el UrlsRegister</h2>
+            <pre>
+                php
+                    $endpoint = new FiltrarUrl ();
+                    $endpoint->saveUrl('login');
+                    $endpoint->saveUrl('register');
+                ?>
+            </pre>
+            <p>
+                En este archivo almacenaremos 
+                todas las rutas que seran validas
+                en este proyecto.
+            </p>
+            <h2>Que hay en el Switcher</h2>
+            <pre>
+                php
+                    $urls = $endpoint->urls();
+                    $urlExists = false;
+                    for ($i = 0; $i < count($urls); $i++) {
+                        if($endpoint->url() == $urls[$i]){
+                            $urlExists = true;
+                            break;
+                        }
+                    } 
+
+                    if ($urlExists) {
+                        switch ($endpoint->url()) {
+                            case "login": echo "Login page"; break;
+                            case "register": echo "Register page"; break;
+                        }
+                    } else {
+                        require_once './LaPlantilla.html';
+                    }
+                ?>
+            </pre>
+            <p>
+                El Switcher se encarga de verificar
+                que el url ingresado por el navegador
+                este registrado y una vez se verifica 
+                su existencia se procede a realizar
+                la busqueda de las acciones requeridas.
+            </p>
 		</main>
 		<aside class="sidebar">
             <img src="./img/bgsidebar.jpg" alt="logo" width="100%" height="100%">
@@ -143,6 +129,16 @@
                 <li>
                     <p>
                     http://soipd.test/
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    http://soipd.test/login
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    http://soipd.test/register
                     </p>
                 </li>
             </ul></div>
