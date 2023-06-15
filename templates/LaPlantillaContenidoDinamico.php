@@ -113,7 +113,7 @@
                 Con Contenido Dinamico Y Estatico.</em></h2>
 		</header>
 		<main class="contenido">
-			<h1>Page : <em><?php echo $title; ?></em></h1>
+			<h1>Page : <em><?= $title; ?></em></h1>
 			<p>
             Content :
 			</p>
@@ -125,7 +125,7 @@
                         print_r ($primer);
                     } else if ($switch == 2) {
                         print_r($todos);
-                    } else {
+                    } else if ($switch == 3) {
                         print_r($porId);
                     }
                     ?>

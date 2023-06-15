@@ -33,6 +33,9 @@ class ElControlador {
                 }
                 require_once LasConstantes::PATH().'templates/LaPlantillaContenidoDinamico.php';
             break;
+            case "public/login":require_once LasConstantes::PATH().
+            'templates/LaPlantillaContenidoDinamico.php';
+            break;
             default: require_once LasConstantes::PATH().'templates/LaPlantilla404.html';
         }
     }

@@ -24,8 +24,4 @@ class LaClase implements LaInterface {
             new ElControlador($uri);
         }
     }
-    public static function ElMetodoGETPOST ($method,$uri,$callback) {
-        $uri = trim($uri,'/');
-        self::$LaRuta[$method][$uri] = $callback;
-    } 
 }
