@@ -34,11 +34,11 @@ class LaBaseDeDatos {
     }
     //CONSULTAS PREPARADAS
     public function all () {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM {$this->table}";
         return $this->Consultar($sql)->Todos();
     }
     public function first () {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM {$this->table}";
         return $this->Consultar($sql)->Primer();
     }
 }

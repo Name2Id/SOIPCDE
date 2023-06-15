@@ -13,12 +13,12 @@ class ElControlador {
             case 'public': require_once LasConstantes::PATH().'templates/LaPlantilla.html';break;
             case "public/pages/$title": 
                 $switch = null;
-                $lbdd = new LaBaseDeDatos;
+                $users = new LosUsuarios;
                 if ($title === "Primer") {
-                    $primer = $lbdd->first();
+                    $primer = $users->first();
                     $switch = 1;
                 } else if ($title ==="Todos") {
-                    $todos = $lbdd->all();
+                    $todos = $users->all();
                     $switch = 2;
                 }
                 require_once LasConstantes::PATH().'templates/LaPlantillaTituloDinamico.php';break;
