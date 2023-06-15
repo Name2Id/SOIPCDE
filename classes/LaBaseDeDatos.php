@@ -24,6 +24,7 @@ class LaBaseDeDatos {
     }
     public function Consultar ($sql) {
         $this->consulta = $this->ConexionEstablecida->query($sql);
+        return $this;
     }
     public function Primer () {
         return $this->consulta->fetch_assoc();

@@ -14,12 +14,11 @@ class ElControlador {
             case "public/pages/$title": 
                 $switch = null;
                 $lbdd = new LaBaseDeDatos;
-                $lbdd->Consultar("SELECT * FROM users");
                 if ($title === "Primer") {
-                    $primer = $lbdd->Primer();
+                    $primer = $lbdd->Consultar("SELECT * FROM users")->Primer();
                     $switch = 1;
                 } else if ($title ==="Todos") {
-                    $todos = $lbdd->Todos();
+                    $todos = $lbdd->Consultar("SELECT * FROM users")->Todos();
                     $switch = 2;
                 }
                 require_once LasConstantes::PATH().'templates/LaPlantillaTituloDinamico.php';break;
