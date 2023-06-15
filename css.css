@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    line-height: 1.5;
 }
 
 body {
@@ -84,6 +85,10 @@ body {
     background: #12203E;
     color: #fff;
     grid-area: footer;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    margin: 10px 0;
 }
 
 @media screen and (max-width: 768px){
