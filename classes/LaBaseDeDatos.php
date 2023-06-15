@@ -6,6 +6,7 @@ class LaBaseDeDatos {
     protected $dbPass = '';
     protected $dbName = '';
     protected $ConexionEstablecida;
+    protected $consulta;
     public function __construct () {
         $this->dbHost = LasConstantes::HOST();
         $this->dbUser = LasConstantes::USER();
@@ -20,5 +21,14 @@ class LaBaseDeDatos {
             require_once LasConstantes::PATH().'require/LaPlantillaErrorDeConexion.html';
             die ();
         }
+    }
+    public function Consultar ($sql) {
+        $this->consulta = $this->ConexionEstablecida->query($sql);
+    }
+    public function Primer () {
+        return $this->consulta->fetch_assoc();
+    }
+    public function Todos () {
+        return $this->consulta->fetch_all(MYSQLI_ASSOC);
     }
 }

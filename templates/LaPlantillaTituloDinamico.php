@@ -113,13 +113,25 @@
                 Con Contenido Dinamico Y Estatico.</em></h2>
 		</header>
 		<main class="contenido">
-			<h1><?php echo $title; ?></h1>
+			<h1>Page : <em><?php echo $title; ?></em></h1>
 			<p>
-            Se solicita la pagina:
+            Content :
 			</p>
+            <hr>
+            <div>
+                <pre>
+                    <?php 
+                    if ($switch == 1) {
+                        print_r ($primer);
+                    } else if ($switch == 2) {
+                        print_r($todos);
+                    }
+                    ?>
+                </pre>
+            </div>
 		</main>
 		<aside class="sidebar">
-            <img src="/public/img/logo.jpg" alt="logo" width="100%" height="100%">
+            <img src="/public/img/bgsidebar.jpg" alt="logo" width="100%" height="100%">
 		</aside>
 		<div class="widget-1">
 			<h3>Enrutador Status</h3>
