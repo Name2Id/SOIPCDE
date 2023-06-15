@@ -10,9 +10,11 @@ class ElControlador {
             $title = $title[0];
         }
         switch ($page) {
-            case 'public': require_once 'C:/xampp/htdocs/templates/LaPlantilla.php';break;
-            case "public/pages/$title": require_once 'C:/xampp/htdocs/templates/LaPlantillaTituloDinamico.php';break;
-            default: require_once 'C:/xampp/htdocs/templates/LaPlantilla404.php';
+            case 'public': require_once LasConstantes::PATH().'templates/LaPlantilla.html';break;
+            case "public/pages/$title": 
+                $lbdd = new LaBaseDeDatos;
+                require_once LasConstantes::PATH().'templates/LaPlantillaTituloDinamico.php';break;
+            default: require_once LasConstantes::PATH().'templates/LaPlantilla404.html';
         }
     }
 }
