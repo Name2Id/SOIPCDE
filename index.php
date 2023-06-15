@@ -1,3 +1,3 @@
 <?php
 
-header("Location: public");
+echo "punto de acceso";

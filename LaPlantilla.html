@@ -109,50 +109,43 @@
 <body>
 	<div class="contenedor">
 		<header class="header">
-			<h2>SOIPCDE <em>Sistema para la Organizacion e Integracion de Paginas 
+			<h2>SOIPCDE <em>Sistema para la Organizacion e Integracion de Paginas
                 Con Contenido Dinamico Y Estatico.</em></h2>
 		</header>
 		<main class="contenido">
-			<h1>Page : <em><?= $title; ?></em></h1>
+			<h1>Como se crea un unico punto de acceso.</h1>
 			<p>
-            Content :
-			</p>
-            <hr>
-            <div>
+                Para obtener un unico punto de acceso
+                se necesitan de dos archivos esencialmente
+                el archivo .htaccess y el archivo index
+				<br><br>
+                en el archivo index debera estar almacenado
+                el codigo referente al manejo de las rutas 
+                mientras que en el archivo .htaccess deberas
+                escribir el siguiente codigo :
+				<br><br>
                 <pre>
-                    <?php 
-                    if ($switch == 1) {
-                        print_r ($primer);
-                    } else if ($switch == 2) {
-                        print_r($todos);
-                    } else if ($switch == 3) {
-                        print_r($porId);
-                    }
-                    ?>
+                Options -MultiViews
+                RewriteEngine On 
+                RewriteCond %{REQUEST_FILENAME} !-f 
+                RewriteRule ^ YourFileName.php [QSA,L]
                 </pre>
-            </div>
+			</p>
 		</main>
 		<aside class="sidebar">
-            <img src="/public/img/bgsidebar.jpg" alt="logo" width="100%" height="100%">
+            <img src="./img/bgsidebar.jpg" alt="logo" width="100%" height="100%">
 		</aside>
 		<div class="widget-1">
-			<h3>Enrutador Status</h3>
-            <p>
-                Detector de urls funcionando.
-            </p>
+			<h3>End Points =></h3>
 		</div>
 		<div class="widget-2">
-			<h3>End Point</h3>
-            <div>
-            <br><br><br>
-                <ul>
-                    <li>
-                        <p>
-                        http://soipd.test/<?php echo $page; ?>
-                        </p>
-                    </li>
-                </ul>
-            </div>
+            <div><ul>
+                <li>
+                    <p>
+                    http://soipd.test/
+                    </p>
+                </li>
+            </ul></div>
 		</div>
 		<footer class="footer">
 			<h3>&copy; Ramiro G. 2023.</h3>
