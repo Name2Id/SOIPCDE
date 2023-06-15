@@ -26,12 +26,9 @@
                 mientras que en el archivo .htaccess deberas
                 escribir el siguiente codigo :
 				<br><br>
-                <pre>
-                Options -MultiViews
-                RewriteEngine On 
-                RewriteCond %{REQUEST_FILENAME} !-f 
-                RewriteRule ^ YourFileName.php [QSA,L]
-                </pre>
+                <p>
+                <?php highlight_file('.htaccess'); ?>
+                </p>
 			</p>
             <h2>el index</h2>
             <p>
