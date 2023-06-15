@@ -15,10 +15,10 @@ class ElControlador {
                 $switch = null;
                 $lbdd = new LaBaseDeDatos;
                 if ($title === "Primer") {
-                    $primer = $lbdd->Consultar("SELECT * FROM users")->Primer();
+                    $primer = $lbdd->first();
                     $switch = 1;
                 } else if ($title ==="Todos") {
-                    $todos = $lbdd->Consultar("SELECT * FROM users")->Todos();
+                    $todos = $lbdd->all();
                     $switch = 2;
                 }
                 require_once LasConstantes::PATH().'templates/LaPlantillaTituloDinamico.php';break;

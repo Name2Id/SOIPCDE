@@ -32,4 +32,13 @@ class LaBaseDeDatos {
     public function Todos () {
         return $this->consulta->fetch_all(MYSQLI_ASSOC);
     }
+    //CONSULTAS PREPARADAS
+    public function all () {
+        $sql = "SELECT * FROM users";
+        return $this->Consultar($sql)->Todos();
+    }
+    public function first () {
+        $sql = "SELECT * FROM users";
+        return $this->Consultar($sql)->Primer();
+    }
 }
