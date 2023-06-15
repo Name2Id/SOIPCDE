@@ -104,12 +104,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<title>Layout de Sitio Web con CSS GRID</title>
+	<title>Ramiro S back N</title>
 </head>
 <body>
 	<div class="contenedor">
 		<header class="header">
-			<h2>SOIPD <em>Sistema para la Organizacion e Integracion de Paginas Dinamicas.</em></h2>
+			<h2>SOIPCDE <em>Sistema para la Organizacion e Integracion de Paginas
+                Con Contenido Dinamico Y Estatico.</em></h2>
 		</header>
 		<main class="contenido">
 			<h1>Como se crea un unico punto de acceso.</h1>
