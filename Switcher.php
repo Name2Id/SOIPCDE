@@ -14,5 +14,5 @@ if ($urlExists) {
         case "register": echo "Register page"; break;
     }
 } else {
-    require_once './LaPlantilla.html';
+    require_once './index.html';
 }
