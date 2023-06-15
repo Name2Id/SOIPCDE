@@ -13,6 +13,17 @@
 		<header class="header">
 			<h2>SOIPCDE <em>Sistema para la Organizacion e Integracion de Paginas
                 Con Contenido Dinamico Y Estatico.</em></h2>
+            <p>
+                Cada seccion de este documento muestra
+                el fragmento de codigo correspondiente
+                a un archivo en especifico.<br><br>
+
+                Es muy facil para usted replicar este 
+                sistema siguiendo esta guia ya que 
+                simplemente tendra que crear los 
+                archivos y copiar y pegar el codigo 
+                correspondiente.
+            </p>
 		</header>
 		<main class="contenido">
 			<h1>Como se crea un unico punto de acceso.</h1>
