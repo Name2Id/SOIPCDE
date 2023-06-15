@@ -33,82 +33,30 @@
                 RewriteRule ^ YourFileName.php [QSA,L]
                 </pre>
 			</p>
-            <h2>Que hay en el index</h2>
+            <h2>el index</h2>
             <p>
-                php <br>
-                    require_once './Autoload.php'; <br>
-                    require_once './UrlsRegister.php';<br>
-                    require_once './Switcher.php';<br>
-                ?>
+                <?php highlight_file('./index.php'); ?>
             </p>
-            <h2>Que hay en el Autoload</h2>
+            <h2>el Autoload</h2>
             <p>
-                php<br>
-                    spl_autoload_register (function($class) {<br>
-                        $ruta = "C:/xampp/htdocs/".$class.".php";<br>
-                        if (file_exists($ruta)) {<br>
-                            require_once $ruta;<br>
-                        }<br>
-                    });<br>
-                ?>
+            <?php highlight_file('./Autoload.php'); ?>
             </p>
             <h2>el Autoload Carga la Clase FiltrarUrl</h2>
             <p>
-                php<br>
-                    class FiltrarUrl {<br>
-                        private $url;<br>
-                        private $urls;<br>
-                        public function __construct () {<br>
-                            $url = $_SERVER['REQUEST_URI'];<br>
-                            $url = trim($url,'/');<br>
-                            $this->url = $url;<br>
-                        }<br>
-                        public function url () {<br>
-                            return $this->url;<br>
-                        }<br>
-                        public function saveUrl ($url) {<br>
-                            $this->urls[] = $url;<br>
-                        }<br>
-                        public function urls () {<br>
-                            return $this->urls;<br>
-                        }<br>
-                    }<br>
-                ?>
+            <?php highlight_file('./FiltrarUrl.php'); ?>
             </p>
-            <h2>Que hay en el UrlsRegister</h2>
+            <h2>el UrlsRegister</h2>
             <p>
-                php<br>
-                    $endpoint = new FiltrarUrl ();<br>
-                    $endpoint->saveUrl('login');<br>
-                    $endpoint->saveUrl('register');<br>
-                ?>
+            <?php highlight_file('./UrlsRegister.php'); ?>
             </p>
             <p>
                 En este archivo almacenaremos 
                 todas las rutas que seran validas
                 en este proyecto.
             </p>
-            <h2>Que hay en el Switcher</h2>
+            <h2>el Switcher</h2>
             <p>
-                php<br>
-                    $urls = $endpoint->urls();<br>
-                    $urlExists = false;<br>
-                    for ($i = 0; $i < count($urls); $i++) {<br>
-                        if($endpoint->url() == $urls[$i]){<br>
-                            $urlExists = true;<br>
-                            break;<br>
-                        }<br>
-                    } <br>
-
-                    if ($urlExists) {<br>
-                        switch ($endpoint->url()) {<br>
-                            case "login": echo "Login page"; break;<br>
-                            case "register": echo "Register page"; break;<br>
-                        }<br>
-                    } else {<br>
-                        require_once './LaPlantilla.html';<br>
-                    }<br>
-                ?>
+            <?php highlight_file('./Switcher.php'); ?>
             </p>
             <p>
                 El Switcher se encarga de verificar
