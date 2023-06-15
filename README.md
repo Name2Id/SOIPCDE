@@ -5,5 +5,5 @@
 
 <p>
 Para ver la documentacion en linea 
-visita este link : https://name2id.github.io/SOIPCDE/template.html
+visita este link : https://name2id.github.io/SOIPCDE/template.php
 </p>
