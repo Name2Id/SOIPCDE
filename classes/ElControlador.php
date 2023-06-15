@@ -24,7 +24,8 @@ class ElControlador {
                     $porId = $users->find($title);
                     $switch = 3;
                 }
-                require_once LasConstantes::PATH().'templates/LaPlantillaTituloDinamico.php';break;
+                require_once LasConstantes::PATH().'templates/LaPlantillaTituloDinamico.php';
+            break;
             default: require_once LasConstantes::PATH().'templates/LaPlantilla404.html';
         }
     }
