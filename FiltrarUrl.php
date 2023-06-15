@@ -17,4 +17,7 @@ class FiltrarUrl {
     public function urls () {
         return $this->urls;
     }
+    public function content ($path) {
+        require_once ($path);
+    }
 }

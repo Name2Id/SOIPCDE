@@ -10,9 +10,16 @@ for ($i = 0; $i < count($urls); $i++) {
 
 if ($urlExists) {
     switch ($endpoint->url()) {
-        case "login": echo "Login page"; break;
-        case "register": echo "Register page"; break;
+        case "login": 
+            $path = "./content/login.php"; 
+            require_once './template.php';
+        break;
+        case "register": 
+            $path = "./content/register.php";
+            require_once './template.php';
+        break;
     }
 } else {
+    $path = "./content/home.php";
     require_once './template.php';
 }
