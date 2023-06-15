@@ -125,6 +125,8 @@
                         print_r ($primer);
                     } else if ($switch == 2) {
                         print_r($todos);
+                    } else {
+                        print_r($porId);
                     }
                     ?>
                 </pre>

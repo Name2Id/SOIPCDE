@@ -41,4 +41,8 @@ class LaBaseDeDatos {
         $sql = "SELECT * FROM {$this->table}";
         return $this->Consultar($sql)->Primer();
     }
+    public function find ($id) {
+        $sql = "SELECT * FROM {$this->table} WHERE id = {$id}";
+        return $this->Consultar($sql)->Primer();
+    }
 }

@@ -20,6 +20,9 @@ class ElControlador {
                 } else if ($title ==="Todos") {
                     $todos = $users->all();
                     $switch = 2;
+                } else {
+                    $porId = $users->find($title);
+                    $switch = 3;
                 }
                 require_once LasConstantes::PATH().'templates/LaPlantillaTituloDinamico.php';break;
             default: require_once LasConstantes::PATH().'templates/LaPlantilla404.html';
