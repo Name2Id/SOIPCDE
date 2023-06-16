@@ -8,6 +8,7 @@
 	<title>Ramiro S back N</title>
     <link rel="stylesheet" href="./css.css">
     <link rel="stylesheet" href="./form.css">
+    <link rel="stylesheet" href="./nav/nav.css">
 </head>
 <body>
 	<div class="contenedor">
@@ -25,6 +26,7 @@
                 archivos y copiar y pegar el codigo 
                 correspondiente.
             </p>
+            <?php require_once './nav/nav.html'; ?>
 		</header>
 		<main class="contenido">
 			<?php $endpoint->content($path); ?>
