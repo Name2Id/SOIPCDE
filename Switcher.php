@@ -11,11 +11,11 @@ for ($i = 0; $i < count($urls); $i++) {
 if ($urlExists) {
     switch ($endpoint->url()) {
         case "login": 
-            $path = "./content/login.php"; 
+            $path = "./content/login.html"; 
             require_once './template.php';
         break;
         case "register": 
-            $path = "./content/register.php";
+            $path = "./content/register.html";
             require_once './template.php';
         break;
     }

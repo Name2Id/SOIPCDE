@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<title>Ramiro S back N</title>
     <link rel="stylesheet" href="./css.css">
+    <link rel="stylesheet" href="./form.css">
 </head>
 <body>
 	<div class="contenedor">
